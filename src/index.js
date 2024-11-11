@@ -66,8 +66,6 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
-  console.log(response.data);
-
   let forecastHtml = "";
 
   response.data.daily.forEach(function (day, index) {
@@ -81,7 +79,7 @@ function displayForecast(response) {
       <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
       
       <div class="weather-forecast-temperatures">
-          <div class="weather-forecast-temperatue">
+          <div class="weather-forecast-temperature">
           <strong>${Math.round(day.temperature.maximum)}°</strong>
           </div>
           <div class="weather-forecast-temperature">${Math.round(
@@ -101,4 +99,5 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Johannesburg");
-getForecast("Johannesburg");
+getForecast("city");
+displayForecast("city");
